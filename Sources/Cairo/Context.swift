@@ -229,6 +229,12 @@ public final class Context {
         
         cairo_curve_to(pointer, controlPoints.first.x, controlPoints.first.y, controlPoints.second.x, controlPoints.second.y, controlPoints.end.x, controlPoints.end.y)
     }
+
+    public func extents(for text: String) -> TextExtents {
+        var extents = TextExtents()
+        cairo_text_extents(pointer, text, &extents)
+        return extents
+    }
     
     public func show(text: String) {
         
